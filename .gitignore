@@ -1,0 +1,20 @@
+# Variables privadas
+.env
+env/
+
+# Entornos virtuales
+.venv/
+venv/
+.venv*/
+
+# Byte-compiled / optimised / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

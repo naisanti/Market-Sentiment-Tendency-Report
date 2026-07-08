@@ -1,0 +1,41 @@
+2026-07-08 14:33:26  INFO      trading_report.__main__ - === Market Sentiment Tendency Report – pipeline started ===
+2026-07-08 14:33:26  INFO      trading_report.data_processing.excel_reader - Reading all sheets from 'Strategy_Playbook_DB.xlsx'
+2026-07-08 14:33:27  DEBUG     trading_report.data_processing.excel_reader - Found sheets: ['T 1', 'T 2', 'T 2 - 1 Prev', 'LH', 'Parabolic', 'Overnight', '3 D Cont', '3-Day-Channel', 'Day-2-Channel', 'Hail-Mari Reversal']
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 34→0 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'T 1': no data in window, skipped.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 83→1 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'T 2': 1 rows.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 60→1 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'T 2 - 1 Prev': 1 rows.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 171→2 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'LH': 2 rows.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 97→2 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'Parabolic': 2 rows.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 98→0 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'Overnight': no data in window, skipped.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 17→0 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – '3 D Cont': no data in window, skipped.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 35→1 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – '3-Day-Channel': 1 rows.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 18→0 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'Day-2-Channel': no data in window, skipped.
+2026-07-08 14:33:27  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 26→0 rows (last 8 days, 2026-07-01 to 2026-07-08)
+2026-07-08 14:33:27  INFO      trading_report.__main__ - Section 1 – 'Hail-Mari Reversal': no data in window, skipped.
+2026-07-08 14:33:27  INFO      trading_report.data_processing.excel_reader - Reading sheet 'Companies' from 'Market_Sentiment_DB.xlsx'
+2026-07-08 14:33:27  DEBUG     trading_report.data_processing.excel_reader - Shape: (868, 5)
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.mergers - Sheet 'T 2' has no RR column; skipping for RR lookup.
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.mergers - RR lookup built: 372 tickers.
+2026-07-08 14:33:28  INFO      trading_report.data_processing.mergers - Recent Sectors: 7 unique rows.
+2026-07-08 14:33:28  INFO      trading_report.__main__ - Section 2 – Recent Sectors: 7 rows.
+2026-07-08 14:33:28  INFO      trading_report.data_processing.excel_reader - Reading sheet 'Tendencies' from 'Market_Sentiment_DB.xlsx'
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.excel_reader - Shape: (42, 29)
+2026-07-08 14:33:28  DEBUG     trading_report.utils.dates - filter_last_n_calendar_days: 42→3 rows (last 6 days, 2026-07-03 to 2026-07-08)
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.filters - B_ columns: 25 total, 15 pass filter (≥1 activation in last 5 calendar days)
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.mergers - Tendencies Ranking: 15 rows.
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.filters - C_ columns: 3 total, 2 pass filter (≥1 value > 1 in last 5 calendar days)
+2026-07-08 14:33:28  DEBUG     trading_report.data_processing.mergers - Tendencies C_ table: 3 rows × 3 cols.
+2026-07-08 14:33:28  INFO      trading_report.__main__ - Section 3 – B_ cols: 15, C_ cols: 2.
+2026-07-08 14:33:28  INFO      trading_report.reporting.report_generator - Using Word template: D:\Python_Projects\Market_Sentiment_Tendency_Report\Daily Report Template.docx
+2026-07-08 14:33:28  INFO      trading_report.reporting.report_generator - Word document saved → C:\Users\nai_s\Dropbox\Trading\Trade_Nai\Trading_Review_Nai\Output_Daily_Report_Tendency\Daily_Report_2026-07-08.docx
+2026-07-08 14:33:34  INFO      trading_report.reporting.report_generator - PDF created via Microsoft Word COM → C:\Users\nai_s\Dropbox\Trading\Trade_Nai\Trading_Review_Nai\Output_Daily_Report_Tendency\Daily_Report_2026-07-08.pdf
+2026-07-08 14:33:36  INFO      trading_report.__main__ - === Report generated successfully: C:\Users\nai_s\Dropbox\Trading\Trade_Nai\Trading_Review_Nai\Output_Daily_Report_Tendency\Daily_Report_2026-07-08.pdf ===
