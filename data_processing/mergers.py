@@ -20,7 +20,7 @@ logger = get_logger(__name__)
 
 
 def build_recent_sectors(
-    movers_frames: list[pd.DataFrame],
+    movers_frames: dict[str, pd.DataFrame],
     movers_raw_sheets: dict[str, pd.DataFrame],
     companies_df: pd.DataFrame,
 ) -> pd.DataFrame:
@@ -83,7 +83,16 @@ def build_recent_sectors(
 
     # Deduplicate and sort
     result = (
-        merged[[DATE_COL, TICKER_COL, CATEGORY_COL, SUBCATEGORY_COL, "RR"]]
+        merged[
+            [
+                DATE_COL,
+                TICKER_COL,
+                CATEGORY_COL,
+                SUBCATEGORY_COL,
+                "Pattern",
+                "RR",
+            ]
+        ]
         .drop_duplicates()
         .sort_values(DATE_COL, ascending=False)
         .reset_index(drop=True)
@@ -163,12 +172,15 @@ def build_tendencies_c_table(
 # ---------------------------------------------------------------------------
 
 
-def _combine_date_ticker(frames: list[pd.DataFrame]) -> pd.DataFrame:
+def _combine_date_ticker(frames: dict[str, pd.DataFrame]) -> pd.DataFrame:
     """Stack Date + Ticker columns from multiple DataFrames."""
     parts: list[pd.DataFrame] = []
-    for df in frames:
+
+    for pattern, df in frames.items():
         if DATE_COL in df.columns and TICKER_COL in df.columns:
-            parts.append(df[[DATE_COL, TICKER_COL]].copy())
+            part = df[[DATE_COL, TICKER_COL]].copy()
+            part["Pattern"] = pattern
+            parts.append(part)
         else:
             logger.warning(
                 "Skipping a movers DataFrame that is missing '%s' or '%s'.",

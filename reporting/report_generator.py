@@ -21,6 +21,9 @@ from config import (
     DATE_COL,
     OUTPUT_DIR,
     WORD_TEMPLATE_PATH,
+    TENDENCIES_DAYS,
+    TENDENCIES_FILTER_DAYS,
+    RECENT_MOVERS_DAYS,
 )
 from reporting.word_styles import (
     add_normal,
@@ -71,19 +74,19 @@ def generate_report(data: ReportData) -> Path:
     add_normal(doc, f"Generated on {date.today().isoformat()}")
 
     # Section 1
-    add_subtitle(doc, "Recent Movers")
+    add_subtitle(doc, "Recent Movers " + str(RECENT_MOVERS_DAYS) + " Days")
     _write_movers_section(doc, data.movers)
 
     # Section 2
-    add_subtitle(doc, "Recent Sectors")
+    add_subtitle(doc, "Recent Sectors " + str(RECENT_MOVERS_DAYS) + " Days")
     _write_dataframe_table(doc, data.recent_sectors, highlight_mode="none")
 
     # Section 3/4 – Ranking with latest-day green
-    add_subtitle(doc, "Tendencies")
+    add_subtitle(doc, "Tendencies " + str(TENDENCIES_FILTER_DAYS) + " Days")
     _write_ranking_table(doc, data.tendencies_ranking, data.tendencies_ranking_source)
 
     # Tendencies Detail – no green
-    add_subtitle(doc, "Tendencies Detail")
+    add_subtitle(doc, "Tendencies Detail " + str(TENDENCIES_DAYS) + " Days")
     _write_dataframe_table(doc, data.tendencies_c, highlight_mode="none")
 
     docx_path = _save_document(doc)

@@ -111,7 +111,7 @@ def main() -> None:
     try:
         companies_df = read_sheet(MARKET_SENTIMENT_PATH, COMPANIES_SHEET)
         recent_sectors = build_recent_sectors(
-            movers_frames=list(movers.values()),
+            movers_frames=movers,
             movers_raw_sheets=all_sheets,
             companies_df=companies_df,
         )
